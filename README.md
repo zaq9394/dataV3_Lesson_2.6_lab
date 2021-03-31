@@ -11,26 +11,11 @@ The database is structured as follows:
 
 ### Instructions
 
-1. Get release years.
-2. Get all films with ARMAGEDDON in the title.
-3. Get all films which title ends with APOLLO.
-4. Get 10 the longest films.
-5. How many films include **Behind the Scenes** content?
-6. Drop column `picture` from `staff`.
-7. A new person is hired to help Jon. Her name is TAMMY SANDERS, and she is a customer. Update the database accordingly.
-8. Add rental for movie "Academy Dinosaur" by Charlotte Hunter from Mike Hillyer at Store 1. You can use current date for the `rental_date` column in the `rental` table.
-   **Hint**: Check the columns in the table rental and see what information you would need to add there. You can query those pieces of information. For eg., you would notice that you need `customer_id` information as well. To get that you can use the following query:
-
-```sql
-select customer_id from sakila.customer
-where first_name = 'CHARLOTTE' and last_name = 'HUNTER';
-```
-
-Use similar method to get `inventory_id`, `film_id`, and `staff_id`.
-
-9. Delete non-active users, but first, create a _backup table_ `deleted_users` to store `customer_id`, `email`, and the `date` for the users that would be deleted. Follow these steps:
-
-   - Check if there are any non-active users
-   - Create a table _backup table_ as suggested
-   - Insert the non active users in the table _backup table_
-   - Delete the non active users from the table _customer_
+1. In the table actor, which are the actors whose last names are not repeated? For example if you would sort the data in the table actor by last_name, you would see that there is Christian Arkoyd, Kirsten Arkoyd, and Debbie Arkoyd. These three actors have the same last name. So we do not want to include this last name in our output. Last name "Astaire" is present only one time with actor "Angelina Astaire", hence we would want this in our output list. 
+2. Which last names appear more than once? We would use the same logic as in the previous question but this time we want to include the last names of the actors where the last name was present more than once
+3. Using the rental table, find out how many rentals were processed by each employee.
+4. Using the film table, find out how many films were released each year.
+5. Using the film table, find out for each rating how many films were there.
+6. What is the mean length of the film for each rating type. Round off the average lengths to two decimal places 
+7. Which kind of movies (rating) have a mean duration of more than two hours?
+8. Rank films by length (filter out the rows that have nulls or 0s in length column). In your output, only select the columns title, length, and the rank.
